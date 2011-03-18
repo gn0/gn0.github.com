@@ -11,6 +11,9 @@ import sys
 import os
 
 ###
+#
+# This part is from somewhere else.
+#
 
 ZERO = timedelta(0)
 
