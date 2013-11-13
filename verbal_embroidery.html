@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>verbal embroidery</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
 
@@ -66,6 +67,49 @@ var traversePage = function(tag){
 
 traversePage(document);
 }());">original</a></li>
+<li><a href="javascript:(function () {
+    var dropbox_folder = 'https://dl.dropboxusercontent.com/u/10594712/meo/';
+
+    var kitties = [
+        {name: 'Cat-Flower.jpg', width: 322, height: 358},
+        {name: 'Cats-About-To-Hug.jpg', width: 1600, height: 1173},
+        {name: 'Cute-Cat-06.jpg', width: 1558, height: 1050},
+        {name: 'Downwards-Looking-Cat.jpg', width: 1600, height: 1200},
+        {name: 'Hanging-Cats.jpg', width: 1440, height: 1080},
+        {name: 'Lurking-Cat.jpg', width: 1280, height: 1024},
+        {name: 'Praying-Cat.jpg', width: 1880, height: 1080},
+        {name: 'Pretty-Cat.jpg', width: 1280, height: 853},
+        {name: 'Drinking-Cat.jpg', width: 974, height: 768},
+        {name: 'Blushing-Cat.jpg', width: 1920, height: 1440},
+        {name: 'Bullet-Cat.jpg', width: 580, height: 403},
+        {name: 'Sleeping-Cat.jpg', width: 640, height: 400},
+        {name: 'Cat-In-A-Cup.jpg', width: 400, height: 296},
+        {name: 'Cat-Kiss.jpg', width: 1024, height: 768},
+        {name: 'Shades-Cat.jpg', width: 733, height: 485},
+        {name: 'Vigorous-Cat.jpg', width: 600, height: 802},
+        {name: 'Training-Cat.jpg', width: 800, height: 600}
+    ];
+
+    var randint = function (low, high) {
+        return Math.floor(Math.random() * (high - low + 1) + low);
+    };
+
+    var images = document.getElementsByTagName('img');
+
+    for (var i = 0; i < images.length; i++) {
+        kitty = kitties[randint(0, kitties.length - 1)];
+        images[i].src = dropbox_folder + kitty.name;
+
+        if (images[i].width) {
+            factor = Math.min(
+                        images[i].width / kitty.width,
+                        images[i].height / kitty.height);
+
+            images[i].width = factor * kitty.width;
+            images[i].height = factor * kitty.height;
+        }
+    }
+}());">mèo</a></li>
 </ul>
 
 </body>
