@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>verbal embroidery</title?
+</head>
+<body>
+
+<p><a href="http://xkcd.com/1288/">http://xkcd.com/1288/</a></p>
+
+<p>Bookmarklets:</p>
+
+<ul>
+<li><a href="javascript:(function(){
+
+var replaceList = [
+    {regex: /witnesses/gi, replacement: 'these dudes I know'},
+    {regex: /allegedly/gi, replacement: 'kinda probably'},
+    {regex: /new study/gi, replacement: 'Tumblr post'},
+    {regex: /rebuild/gi, replacement: 'avenge'},
+    {regex: /space/gi, replacement: 'spaaace'},
+    {regex: /google glass/gi, replacement: 'virtual boy'},
+    {regex: /smartphone/gi, replacement: 'Pokédex'},
+    {regex: /electric/gi, replacement: 'atomic'},
+    {regex: /senator/gi, replacement: 'Elf-lord'},
+    {regex: /car/gi, replacement: 'cat'},
+    {regex: /election/gi, replacement: 'eating contest'},
+    {regex: /congressional leaders/gi, replacement: 'river spirits'},
+    {regex: /congressman/gi, replacement: 'river spirit'},
+    {regex: /homeland security/gi, replacement: 'Homestar Runner'},
+    {regex: /could not be reached for comment/gi, replacement: 'is guilty and everyone knows it'},
+    {regex: /terrorist/gi, replacement: 'clown'},
+    {regex: /kill/gi, replacement: 'tickle'},
+    {regex: /civilian/gi, replacement: 'kitten'},
+    {regex: /\bgun\b/gi, replacement: 'magic wand'},
+    {regex: /\bgunfight\b/gi, replacement: 'magic wand fight'},
+    {regex: /army/gi, replacement: 'team'},
+    {regex: /soldier/gi, replacement: 'wizard'}
+];
+
+var replaceItems = function(text){
+    var out;
+    if(!text || !text.replace){
+        console.log("Cannot replace");
+        return text;
+    }
+    
+    out = text;
+    for(var i = 0; i < replaceList.length; i++){
+        out = out.replace(replaceList[i].regex, replaceList[i].replacement);
+    }
+    return out;
+};
+
+var traversePage = function(tag){
+    if(tag.id){
+        console.log(tag.id);
+    }
+    if(tag.nodeType === 3){
+        tag.textContent = replaceItems(tag.textContent);
+    }
+    if(tag.childNodes){
+        for(var i = 0; i < tag.childNodes.length; i++){
+            traversePage(tag.childNodes[i]);
+        }
+    }
+};
+
+traversePage(document);
+}());">original</a></li>
+</ul>
+
+</body>
+</html>
